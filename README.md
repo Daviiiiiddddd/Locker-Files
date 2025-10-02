@@ -1,10 +1,4 @@
 📁 Secure Folder Manager - أداة قفل المجلدات
-<div align="right">
-https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white
-https://img.shields.io/badge/Batch-4D4D4D?style=for-the-badge&logo=windows&logoColor=white
-https://img.shields.io/badge/Security-00FF00?style=for-the-badge&logo=security&logoColor=white
-
-</div>
 📋 نظرة عامة
 أداة Batch script مخصصة لنظام Windows تمكنك من قفل وإخفاء المجلدات الشخصية بكلمة مرور لحماية خصوصيتك.
 
@@ -22,7 +16,7 @@ https://img.shields.io/badge/Security-00FF00?style=for-the-badge&logo=security&l
 🚀 التثبيت
 الطريقة 1: التنزيل من GitHub
 bash
-git clone https://github.com/mlakot/locker-files.git
+git clone https://github.com/Daviiiiiddddd/Locker-Files.git
 cd locker-files
 الطريقة 2: النسخ اليدوي
 أنشئ ملف جديد باسم SecureFolder.bat
@@ -90,13 +84,9 @@ https://img.shields.io/badge/Batch-100%2525-blue
 
 المستودع: Locker-Files
 
-📄 الترخيص
-هذا المشروع مرخص تحت MIT License.
 
 <div align="center">
 مصنوع بـ ❤️ بواسطة Mlakot
 
-https://img.shields.io/badge/Version-1.0.0-green
-https://img.shields.io/badge/Last_Updated-2025-blue
 
 </div>
