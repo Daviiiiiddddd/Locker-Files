@@ -1,15 +1,13 @@
 @echo off
-title Secure Folder Manager - By Mlakot
+title Secure Folder Manager - Light Version
 cls
 color 0A
 
-:: التأكد من وجود المجلد المخفي أو المجلد العادي
 :MAIN
 cls
-echo ================================
-echo     Secure Folder Manager
-echo      Created by MLakot
-echo ================================
+echo =======================================
+echo        Secure Folder Manager
+echo =======================================
 echo.
 
 if EXIST "Control Panel.{21EC2020-3AEA-1069-A2DD-08002B30309D}" goto UNLOCK
@@ -17,46 +15,45 @@ if EXIST Private goto OPTIONS_LOCKED
 if NOT EXIST Private goto CREATE_NEW
 
 :OPTIONS_LOCKED
-echo [1] Lock Folder (Private)
+echo [1] Lock Folder (Hide)
 echo [2] Exit
-echo.
 set /p opt="Select option: "
 if "%opt%"=="1" goto LOCK
-if "%opt%"=="2" goto END
 goto MAIN
 
 :LOCK
+:: تغيير الاسم أولاً
 ren Private "Control Panel.{21EC2020-3AEA-1069-A2DD-08002B30309D}"
+:: إخفاء كملف نظام (هذا ما يجعله يختفي)
 attrib +h +s "Control Panel.{21EC2020-3AEA-1069-A2DD-08002B30309D}"
-echo ✓ Folder locked successfully!
-pause
+
+:: تحديث المجلدات بدون قفل الشاشة
+ie4uinit.exe -show
+echo ✓ Done!
+timeout /t 2 >nul
 goto MAIN
 
 :UNLOCK
-echo ================================
-echo       UNLOCK SECURE FOLDER
-echo ================================
+echo.
 set /p "pass=Enter password: "
-:: ضع باسووردك هنا مكان YOUR_PASSWORD
-if NOT "%pass%"=="PASSWORD" goto FAIL
+if NOT "%pass%"=="mlakot" goto FAIL
 
 attrib -h -s "Control Panel.{21EC2020-3AEA-1069-A2DD-08002B30309D}"
 ren "Control Panel.{21EC2020-3AEA-1069-A2DD-08002B30309D}" Private
-echo ✓ Folder unlocked successfully!
-pause
+ie4uinit.exe -show
+echo ✓ Unlocked!
+timeout /t 2 >nul
 goto MAIN
 
 :FAIL
-echo ✗ Invalid password!
+echo ✗ Wrong password!
 pause
 goto MAIN
 
 :CREATE_NEW
-echo [1] Create New Private Folder
-echo [2] Exit
-set /p opt="Select option: "
-if "%opt%"=="1" md Private && echo Created! && pause && goto MAIN
-if "%opt%"=="2" goto END
+md Private
+echo ✓ Created 'Private' folder.
+pause
 goto MAIN
 
 :END
